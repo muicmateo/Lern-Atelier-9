@@ -14,7 +14,7 @@ Backend + Frontend (M294 und M295) website.
 - [ ] Einige Kern-Eigenschaften aufschreiben, die mich ausmachen.
 - [ ] Evidenz für diese Eigenschaften finden und ausformulieren
 - [ ] Rechtschreibeprüfung
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich ein Grundgerüst für meine Startseite erstellt. Ein ansprechendes Layout für die Startseite auf papier Entworfen. ABER ein anderes Layout auf rudimentäre Weise mit HTML und CSS umsetzt. Einige Kern-Eigenschaften aufgeschrieben, die mich ausmachen. (50-100 Wörter)
 ☝️ Vergessen Sie nicht, einen ersten Entwurf Ihrer Start-Seite in der entsprechenden Ablage hochzuladen.
 28.2
 - [ ] CV zusammenstellen
