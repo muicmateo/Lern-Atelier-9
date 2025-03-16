@@ -1,0 +1,10 @@
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.csproj.AssemblyReference.cache
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\Avalonia\resources
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.AssemblyInfoInputs.cache
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.AssemblyInfo.cs
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.csproj.CoreCompileInputs.cache
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.dll
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\refint\VideoGameTracker.dll
+C:\Users\cspiv\source\repos\VideoGameTracker\VideoGameTracker\obj\Debug\net8.0\VideoGameTracker.pdb

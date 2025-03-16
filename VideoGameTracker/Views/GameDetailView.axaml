@@ -1,0 +1,143 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:VideoGameTracker.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="VideoGameTracker.Views.GameDetailView">
+
+	<Design.DataContext>
+		<vm:GameDetailViewModel/>
+	</Design.DataContext>
+
+	<Grid RowDefinitions="Auto,*,Auto" Margin="20">
+		<!-- Header -->
+		<Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,20">
+			<TextBlock Grid.Column="0" Text="{Binding Title}" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
+				<Button Command="{Binding StartEditingCommand}"
+                        Content="Edit"
+                        IsVisible="{Binding !IsEditing}"
+                        Padding="10,5"/>
+				<Button Command="{Binding SaveCommand}"
+                        Content="Save"
+                        IsVisible="{Binding IsEditing}"
+                        Padding="10,5"/>
+				<Button Command="{Binding CancelCommand}"
+                        Content="Cancel"
+                        IsVisible="{Binding IsEditing}"
+                        Padding="10,5"/>
+			</StackPanel>
+		</Grid>
+
+		<!-- Main Content -->
+		<ScrollViewer Grid.Row="1">
+			<Grid ColumnDefinitions="250,*" RowDefinitions="Auto,*">
+				<!-- Game Cover -->
+				<Border Grid.Column="0" Grid.Row="0" Width="200" Height="280" ClipToBounds="True" Margin="0,0,20,20">
+					<Image Source="{Binding CoverImageUrl}" Stretch="UniformToFill"/>
+				</Border>
+
+				<!-- Game Info - Display Mode -->
+				<StackPanel Grid.Column="1" Grid.Row="0" Spacing="10" IsVisible="{Binding !IsEditing}">
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Developer:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Developer}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Publisher:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Publisher}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Year:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Year}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Genre:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Genre}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Platform:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Platform}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Status:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Status}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Rating:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding Rating}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Play Time:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding FormattedPlayTime}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Last Played:" FontWeight="Bold"/>
+						<TextBlock Grid.Column="1" Text="{Binding LastPlayedText}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Favorite:" FontWeight="Bold"/>
+						<CheckBox Grid.Column="1" IsChecked="{Binding IsFavorite}" IsEnabled="False"/>
+					</Grid>
+				</StackPanel>
+
+				<!-- Game Info - Edit Mode -->
+				<StackPanel Grid.Column="1" Grid.Row="0" Spacing="10" IsVisible="{Binding IsEditing}">
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Title:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding Title}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Developer:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding Developer}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Publisher:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding Publisher}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Year:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<NumericUpDown Grid.Column="1" Value="{Binding Year}" Minimum="1970" Maximum="2100"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Genre:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding Genre}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Platform:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding Platform}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Status:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<ComboBox Grid.Column="1" Items="{Binding StatusOptions}" SelectedItem="{Binding Status}" Width="200" HorizontalAlignment="Left"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Rating:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<NumericUpDown Grid.Column="1" Value="{Binding Rating}" Minimum="0" Maximum="10" Increment="0.1" FormatString="F1"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Cover URL:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<TextBox Grid.Column="1" Text="{Binding CoverImageUrl}"/>
+					</Grid>
+					<Grid ColumnDefinitions="120,*">
+						<TextBlock Grid.Column="0" Text="Favorite:" FontWeight="Bold" VerticalAlignment="Center"/>
+						<CheckBox Grid.Column="1" IsChecked="{Binding IsFavorite}"/>
+					</Grid>
+				</StackPanel>
+
+				<!-- Description - Display Mode -->
+				<StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Spacing="10" Margin="0,20,0,0" IsVisible="{Binding !IsEditing}">
+					<TextBlock Text="Description" FontWeight="Bold" FontSize="16"/>
+					<TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+				</StackPanel>
+
+				<!-- Description - Edit Mode -->
+				<StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Spacing="10" Margin="0,20,0,0" IsVisible="{Binding IsEditing}">
+					<TextBlock Text="Description" FontWeight="Bold" FontSize="16"/>
+					<TextBox Text="{Binding Description}" Height="150" AcceptsReturn="True" TextWrapping="Wrap"/>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</UserControl>
