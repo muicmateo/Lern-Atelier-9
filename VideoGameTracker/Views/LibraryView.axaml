@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:VideoGameTracker.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="VideoGameTracker.Views.LibraryView">
+
+	<Design.DataContext>
+		<vm:LibraryViewModel/>
+	</Design.DataContext>
+
+	<Grid RowDefinitions="Auto,*">
+		<!-- Top Controls -->
+		<Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto,Auto" Margin="10">
+			<!-- Search Box -->
+			<TextBox Grid.Column="0" Watermark="Search games..." Text="{Binding SearchText}" Margin="0,0,10,0">
+				<TextBox.KeyBindings>
+					<KeyBinding Gesture="Enter" Command="{Binding SearchCommand}"/>
+				</TextBox.KeyBindings>
+			</TextBox>
+
+			<!-- Status Filter -->
+			<ComboBox Grid.Column="1"
+                      Items="{Binding StatusFilterOptions}"
+                      SelectedItem="{Binding StatusFilter}"
+                      Width="120"
+                      Margin="0,0,10,0"/>
+
+			<!-- Platform Filter -->
+			<ComboBox Grid.Column="2"
+                      Items="{Binding PlatformFilterOptions}"
+                      SelectedItem="{Binding PlatformFilter}"
+                      Width="120"
+                      Margin="0,0,10,0"/>
+
+			<!-- Add Game Button -->
+			<Button Grid.Column="3"
+                    Command="{Binding AddGameCommand}"
+                    Content="Add Game"
+                    Padding="10,5"/>
+		</Grid>
+
+		<!-- Game List -->
+		<Grid Grid.Row="1">
+			<DataGrid Items="{Binding Games}"
+                      SelectedItem="{Binding SelectedGame}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      GridLinesVisibility="Horizontal"
+                      CanUserResizeColumns="True"
+                      CanUserSortColumns="True"
+                      Margin="10">
+				<DataGrid.Columns>
+					<DataGridTemplateColumn Header="Cover" Width="80">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<Border Width="60" Height="80" ClipToBounds="True" Margin="5">
+									<Image Source="{Binding CoverImageUrl}" Stretch="UniformToFill"/>
+								</Border>
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+					<DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+					<DataGridTextColumn Header="Platform" Binding="{Binding Platform}" Width="100"/>
+					<DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="60"/>
+					<DataGridTextColumn Header="Status" Binding="{Binding StatusText}" Width="100"/>
+					<DataGridTextColumn Header="Rating" Binding="{Binding Rating}" Width="70"/>
+					<DataGridTextColumn Header="Play Time" Binding="{Binding FormattedPlayTime}" Width="100"/>
+					<DataGridTemplateColumn Header="Favorite" Width="80">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<CheckBox IsChecked="{Binding IsFavorite}" IsEnabled="False" HorizontalAlignment="Center"/>
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+					<DataGridTemplateColumn Header="Actions" Width="120">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+									<Button Command="{Binding $parent[DataGrid].DataContext.EditGameCommand}"
+                                            CommandParameter="{Binding}"
+                                            Content="Edit"
+                                            Margin="5,0"/>
+									<Button Command="{Binding $parent[DataGrid].DataContext.DeleteGameCommand}"
+                                            CommandParameter="{Binding}"
+                                            Content="Delete"
+                                            Margin="5,0"/>
+								</StackPanel>
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+
+			<!-- Loading Indicator -->
+			<ProgressBar IsIndeterminate="True"
+                         IsVisible="{Binding IsLoading}"
+                         Width="200" Height="20"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"/>
+		</Grid>
+	</Grid>
+</UserControl>
