@@ -31,12 +31,12 @@ Backend + Frontend (M294 und M295) website.
 - [x] Rückmeldung geben.
 ✍️ Meine Site fertig gemacht (Ohne Text und Bildern und links. nur design) (50-100 Wörter)
 ☝️ Vergessen Sie nicht, die fertige Version Ihrer Start-Seite in der entsprechenden Ablage hochzuladen.
-14.3
+## 14.3
 Ich möchte endlich meine Avalonia GameTracker app fertig machen aus Lern Periode 8
 - [ ] Game Tracker fertig machen und auf github hochladen.
 - [ ] auf CV website about me schreiben
 - [ ] auf CV website meine Experiences und Skills hochladen sowie ein profilbild
 - [ ] Alle links hinzufügen auf CV-website
+
 ✍️ Heute habe ich nur am VideoGameTracker weiter gearbeitet, weil ich nicht an der Website arbeiten durfte. Und ich habe endlich code hochgeladen auf GitHub. Der Tracker kann starten aber sobald man etwas drückt es crashed instantly. Das muss ich nächstes mal unbedingt lösen. (50-100 Wörter)
-☝️ Vergessen Sie nicht, einen ersten Code Ihres Projektes in dieser Ablage hochzuladen.
 
