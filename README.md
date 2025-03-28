@@ -42,3 +42,8 @@ Ich möchte endlich meine Avalonia GameTracker app fertig machen aus Lern Period
 
 ## 28.03
 Heute habe ich probiert Vide Game Tracker zu funktionieren zu bringen aber alles was ich geschafft habe ist UI schöner machen.
+
+
+## 4.4
+- [ ] Eine Prototyp version vom App als Website herstellen
+- [ ] Mit allen möglichen AI Modellen probieren das crashen der Avalonia app zu stoppen. 
