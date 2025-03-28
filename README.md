@@ -40,3 +40,5 @@ Ich möchte endlich meine Avalonia GameTracker app fertig machen aus Lern Period
 
 ✍️ Heute habe ich nur am VideoGameTracker weiter gearbeitet, weil ich nicht an der Website arbeiten durfte. Und ich habe endlich code hochgeladen auf GitHub. Der Tracker kann starten aber sobald man etwas drückt es crashed instantly. Das muss ich nächstes mal unbedingt lösen. (50-100 Wörter)
 
+## 28.03
+Heute habe ich probiert Vide Game Tracker zu funktionieren zu bringen aber alles was ich geschafft habe ist UI schöner machen.
